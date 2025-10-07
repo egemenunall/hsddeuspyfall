@@ -11,8 +11,7 @@ import HowToPlay from './components/HowToPlay';
 import locationsData from './data/locations.json';
 
 // JSON'dan mekanları yükle
-const LOCATIONS = Object.values(locationsData.categories)
-  .flatMap(category => category.locations);
+const LOCATIONS = locationsData.locations;
 
 function App() {
   const [gameState, setGameState] = useState('menu'); // menu, playerSelect, nameInput, roleDistribution, game, voting, result, howToPlay

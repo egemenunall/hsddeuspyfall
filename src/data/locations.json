@@ -1,101 +1,66 @@
 {
-  "categories": {
-    "hsd_etkinlik": {
-      "name": "HSD DEU & Etkinlik Mekanları",
-      "locations": [
-        "Sunum Alanı",
-        "Workshop Odası",
-        "Kahve Köşesi",
-        "Networking Masası",
-        "Oyun Standı",
-        "Sahne Arkası",
-        "Giriş Alanı",
-        "Jüri Alanı",
-        "Sponsor Alanı",
-        "Dinlenme Alanı",
-        "Konferans Salonu",
-        "Panel Odası"
-      ]
-    },
-    "okul": {
-      "name": "Okul & Üniversite",
-      "locations": [
-        "Kütüphane",
-        "Kafeterya",
-        "Spor Salonu",
-        "Laboratuvar",
-        "Sınıf",
-        "Rektörlük",
-        "Kantin",
-        "Yurt Odası"
-      ]
-    },
-    "sehir": {
-      "name": "Şehir & Genel Mekanlar",
-      "locations": [
-        "Havalimanı",
-        "Tren İstasyonu",
-        "AVM",
-        "Sinema",
-        "Restoran",
-        "Hastane",
-        "Park",
-        "Müze",
-        "Postane",
-        "Banka",
-        "Eczane"
-      ]
-    },
-    "eglence": {
-      "name": "Eğlence & Sosyal",
-      "locations": [
-        "Bowling Salonu",
-        "Karaoke Bar",
-        "Konser Salonu",
-        "Tiyatro",
-        "Lunapark",
-        "Aquapark",
-        "Kafe"
-      ]
-    },
-    "is_ofis": {
-      "name": "İş & Ofis",
-      "locations": [
-        "Toplantı Odası",
-        "Ofis",
-        "Kuaför",
-        "Berber",
-        "Dükkan",
-        "Süpermarket",
-        "Kitapçı",
-        "Kırtasiye"
-      ]
-    },
-    "ulasim": {
-      "name": "Ulaşım & Seyahat",
-      "locations": [
-        "Otobüs",
-        "Metro",
-        "Taksi",
-        "Feribot",
-        "Otel Lobisi",
-        "Otel Odası",
-        "Plaj",
-        "Kamp Alanı"
-      ]
-    },
-    "diger": {
-      "name": "Diğer",
-      "locations": [
-        "Asansör",
-        "Çatı Katı",
-        "Bodrum Katı",
-        "Otopark",
-        "Bahçe",
-        "Balkon",
-        "Teras",
-        "Garaj"
-      ]
-    }
-  }
+  "locations": [
+    "Sunum Alanı",
+    "Workshop Odası",
+    "Kahve Köşesi",
+    "Networking Masası",
+    "Oyun Standı",
+    "Sahne Arkası",
+    "Giriş Alanı",
+    "Jüri Alanı",
+    "Sponsor Alanı",
+    "Dinlenme Alanı",
+    "Konferans Salonu",
+    "Panel Odası",
+    "Kütüphane",
+    "Kafeterya",
+    "Spor Salonu",
+    "Laboratuvar",
+    "Sınıf",
+    "Rektörlük",
+    "Kantin",
+    "Yurt Odası",
+    "Havalimanı",
+    "Tren İstasyonu",
+    "AVM",
+    "Sinema",
+    "Restoran",
+    "Hastane",
+    "Park",
+    "Müze",
+    "Postane",
+    "Banka",
+    "Eczane",
+    "Bowling Salonu",
+    "Karaoke Bar",
+    "Konser Salonu",
+    "Tiyatro",
+    "Lunapark",
+    "Aquapark",
+    "Kafe",
+    "Toplantı Odası",
+    "Ofis",
+    "Kuaför",
+    "Berber",
+    "Dükkan",
+    "Süpermarket",
+    "Kitapçı",
+    "Kırtasiye",
+    "Otobüs",
+    "Metro",
+    "Taksi",
+    "Feribot",
+    "Otel Lobisi",
+    "Otel Odası",
+    "Plaj",
+    "Kamp Alanı",
+    "Asansör",
+    "Çatı Katı",
+    "Bodrum Katı",
+    "Otopark",
+    "Bahçe",
+    "Balkon",
+    "Teras",
+    "Garaj"
+  ]
 }
