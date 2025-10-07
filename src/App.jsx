@@ -8,39 +8,11 @@ import GamePhase from './components/GamePhase';
 import VotingPhase from './components/VotingPhase';
 import ResultPhase from './components/ResultPhase';
 import HowToPlay from './components/HowToPlay';
+import locationsData from './data/locations.json';
 
-// GENİŞLETİLMİŞ MEKANLAR LİSTESİ (50+ mekan)
-const LOCATIONS = [
-  // HSD DEU & Etkinlik Mekanları
-  'Sunum Alanı', 'Workshop Odası', 'Kahve Köşesi', 'Networking Masası',
-  'Oyun Standı', 'Sahne Arkası', 'Giriş Alanı', 'Jüri Alanı',
-  'Sponsor Alanı', 'Dinlenme Alanı', 'Konferans Salonu', 'Panel Odası',
-  
-  // Okul & Üniversite
-  'Kütüphane', 'Kafeterya', 'Spor Salonu', 'Laboratuvar',
-  'Sınıf', 'Rektörlük', 'Kantin', 'Yurt Odası',
-  
-  // Şehir & Genel Mekanlar
-  'Havalimanı', 'Tren İstasyonu', 'AVM', 'Sinema',
-  'Restoran', 'Hastane', 'Park', 'Müze',
-  'Kütüphane', 'Postane', 'Banka', 'Eczane',
-  
-  // Eğlence & Sosyal
-  'Bowling Salonu', 'Karaoke Bar', 'Konser Salonu', 'Tiyatro',
-  'Lunapark', 'Aquapark', 'Kafeterya', 'Kafe',
-  
-  // İş & Ofis
-  'Toplantı Odası', 'Ofis', 'Kuaför', 'Berber',
-  'Dükkan', 'Süpermarket', 'Kitapçı', 'Kırtasiye',
-  
-  // Ulaşım & Seyahat
-  'Otobüs', 'Metro', 'Taksi', 'Feribot',
-  'Otel Lobisi', 'Otel Odası', 'Plaj', 'Kamp Alanı',
-  
-  // Diğer
-  'Asansör', 'Çatı Katı', 'Bodrum Katı', 'Otopark',
-  'Bahçe', 'Balkon', 'Teras', 'Garaj'
-];
+// JSON'dan mekanları yükle
+const LOCATIONS = Object.values(locationsData.categories)
+  .flatMap(category => category.locations);
 
 function App() {
   const [gameState, setGameState] = useState('menu'); // menu, playerSelect, nameInput, roleDistribution, game, voting, result, howToPlay
