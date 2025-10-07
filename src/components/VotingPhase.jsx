@@ -4,7 +4,7 @@ import { useState } from 'react';
 const VotingPhase = ({ playerCount, playerNames, spyIndex, location, locations, onSubmitVotes }) => {
   const [selectedPlayer, setSelectedPlayer] = useState(null);
   const [showSpyGuess, setShowSpyGuess] = useState(false);
-  const [spyGuessedLocation, setSpyGuessedLocation] = useState(null);
+  const [spyGuessedLocation, setSpyGuessedLocation] = useState('');
 
   const handleVote = (index) => {
     setSelectedPlayer(index);
@@ -24,9 +24,12 @@ const VotingPhase = ({ playerCount, playerNames, spyIndex, location, locations, 
     }
   };
 
-  const handleSpyGuess = (guessedLocation) => {
-    setSpyGuessedLocation(guessedLocation);
-    onSubmitVotes(selectedPlayer, guessedLocation);
+  const handleSpyGuess = () => {
+    if (!spyGuessedLocation.trim()) {
+      alert('Lütfen bir mekan girin!');
+      return;
+    }
+    onSubmitVotes(selectedPlayer, spyGuessedLocation.trim());
   };
 
   if (showSpyGuess) {
@@ -34,7 +37,7 @@ const VotingPhase = ({ playerCount, playerNames, spyIndex, location, locations, 
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="px-6 py-8 space-y-6 flex flex-col max-h-screen"
+        className="px-6 py-8 space-y-6 flex flex-col min-h-screen justify-center"
       >
         <div className="text-center flex-shrink-0">
           <div className="text-7xl mb-4">🕵️</div>
@@ -46,30 +49,55 @@ const VotingPhase = ({ playerCount, playerNames, spyIndex, location, locations, 
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 flex-1 overflow-y-auto pr-2" style={{ maxHeight: 'calc(100vh - 350px)' }}>
-          {locations.map((loc, index) => (
-            <motion.button
-              key={index}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => handleSpyGuess(loc)}
-              className={`py-3.5 px-3 rounded-xl font-semibold text-sm transition-all min-h-[56px] flex items-center justify-center ${
-                spyGuessedLocation === loc
-                  ? 'bg-gradient-to-r from-hsd-purple to-purple-700 text-white shadow-lg'
-                  : 'bg-slate-700 text-gray-300 hover:bg-slate-600'
-              }`}
-            >
-              {loc}
-            </motion.button>
-          ))}
+        <div className="space-y-4">
+          <div className="bg-slate-800/50 rounded-2xl p-6 border border-slate-700">
+            <label className="block text-gray-400 text-sm mb-3 text-center">
+              Mekan tahmininizi yazın:
+            </label>
+            <input
+              type="text"
+              value={spyGuessedLocation}
+              onChange={(e) => setSpyGuessedLocation(e.target.value)}
+              onKeyPress={(e) => {
+                if (e.key === 'Enter' && spyGuessedLocation.trim()) {
+                  handleSpyGuess();
+                }
+              }}
+              placeholder="Örn: Sunum Alanı"
+              autoFocus
+              className="w-full bg-slate-700 text-white px-5 py-4 rounded-xl border-2 border-slate-600 focus:border-hsd-blue focus:outline-none transition-colors text-lg text-center placeholder-gray-500 font-semibold"
+            />
+          </div>
+
+          <div className="bg-hsd-purple/20 border border-hsd-purple/50 rounded-xl p-4">
+            <p className="text-gray-300 text-sm text-center leading-relaxed">
+              💡 <strong>İpucu:</strong> Tam mekan adını yazın. Büyük/küçük harf önemli değil.
+            </p>
+          </div>
         </div>
 
-        <motion.button
-          whileTap={{ scale: 0.95 }}
-          onClick={() => onSubmitVotes(selectedPlayer, null)}
-          className="w-full bg-slate-700/80 text-gray-300 py-3 px-8 rounded-xl font-medium text-base shadow-lg hover:bg-slate-600 transition-all min-h-[48px] flex-shrink-0"
-        >
-          ⏭️ Tahmin Etmeden Geç
-        </motion.button>
+        <div className="space-y-3">
+          <motion.button
+            whileTap={{ scale: 0.95 }}
+            onClick={handleSpyGuess}
+            disabled={!spyGuessedLocation.trim()}
+            className={`w-full py-6 px-8 rounded-2xl font-bold text-xl shadow-lg transition-all min-h-[72px] ${
+              spyGuessedLocation.trim()
+                ? 'bg-gradient-to-r from-hsd-blue to-cyan-500 text-white hover:shadow-hsd-blue/50'
+                : 'bg-gray-600 text-gray-400 cursor-not-allowed'
+            }`}
+          >
+            🎯 Tahmin Et
+          </motion.button>
+
+          <motion.button
+            whileTap={{ scale: 0.95 }}
+            onClick={() => onSubmitVotes(selectedPlayer, null)}
+            className="w-full bg-slate-700/80 text-gray-300 py-3 px-8 rounded-xl font-medium text-base shadow-lg hover:bg-slate-600 transition-all min-h-[48px]"
+          >
+            ⏭️ Tahmin Etmeden Geç
+          </motion.button>
+        </div>
       </motion.div>
     );
   }

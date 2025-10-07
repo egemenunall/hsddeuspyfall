@@ -13,7 +13,9 @@ const ResultPhase = ({
   const votedPlayer = votes.votedPlayer;
   const spyGuess = votes.spyGuess;
   const spyCaught = votedPlayer === spyIndex;
-  const spyGuessedCorrectly = spyGuess === location;
+  // Büyük/küçük harf duyarsız karşılaştırma
+  const spyGuessedCorrectly = spyGuess && location && 
+    spyGuess.toLowerCase().trim() === location.toLowerCase().trim();
 
   return (
     <motion.div
