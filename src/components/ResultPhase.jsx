@@ -13,9 +13,15 @@ const ResultPhase = ({
   const votedPlayer = votes.votedPlayer;
   const spyGuess = votes.spyGuess;
   const spyCaught = votedPlayer === spyIndex;
-  // Büyük/küçük harf duyarsız karşılaştırma
+  
+  // Büyük/küçük harf duyarsız karşılaştırma (Türkçe karakterler dahil)
+  const normalizeText = (text) => {
+    if (!text) return '';
+    return text.trim().toLocaleLowerCase('tr-TR');
+  };
+  
   const spyGuessedCorrectly = spyGuess && location && 
-    spyGuess.toLowerCase().trim() === location.toLowerCase().trim();
+    normalizeText(spyGuess) === normalizeText(location);
 
   return (
     <motion.div
